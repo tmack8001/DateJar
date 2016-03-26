@@ -1,0 +1,94 @@
+{
+  "dates": [
+    {
+      "title": "Walk in the park",
+      "subtitle": "Take a stroll in the flower garden",
+      "images": [
+        {
+          "uri": "./images/park.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Trip to the zoo",
+      "subtitle": "See the cute zoo animals",
+      "images": [
+        {
+          "uri": "./images/zoo.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Watch sunrise",
+      "subtitle": "Drive out to the vista point and watch the sunrise at 6am",
+      "images": [
+        {
+          "uri": "./images/sunrise.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Hawaii getaway",
+      "subtitle": "Relax in Hawaii by going to the beach and attending luaus",
+      "images": [
+        {
+          "uri": "./images/hawaii.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Spa day",
+      "subtitle": "Receive a massage and enjoy the peace and quiet",
+      "images": [
+        {
+          "uri": "./images/spa.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Homemade dinner",
+      "subtitle": "Your favorite meal cooked by yours truly",
+      "images": [
+        {
+          "uri": "./images/dinner.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Day on the water",
+      "subtitle": "Boat ride down the river on a breeze day",
+      "images": [
+        {
+          "uri": "./images/boat.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Flowers",
+      "subtitle": "Delivered to your front door",
+      "images": [
+        {
+          "uri": "./images/rose.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Picnic",
+      "subtitle": "Wine, bread, and cheese at a vineyard",
+      "images": [
+        {
+          "uri": "./images/picnic.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Surprise gift",
+      "subtitle": "Won't be revealed until redeemed",
+      "images": [
+        {
+          "uri": "./images/present.jpg"
+        }
+      ]
+    }
+  ]
+}
