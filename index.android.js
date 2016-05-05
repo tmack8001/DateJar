@@ -6,18 +6,22 @@
 import React, {
   AppRegistry,
   Component,
-  Image,
+  DrawerLayoutAndroid,
   ListView,
   StyleSheet,
   Text,
+  ToolbarAndroid,
+  TouchableOpacity,
   View
 } from 'react-native';
 
-var LinearGradient = require('react-native-linear-gradient');
+import DateList from './DateList';
+import MenuItem from './MenuItem';
 
 var MOCKED_DATES_DATA = require('./data/date_coupons.json');
 
 class DateJar extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -39,42 +43,46 @@ class DateJar extends Component {
     });
   }
 
-  render() {
-    if (!this.state.loaded) {
-      return this.renderLoadingView();
+  onActionSelected(position) {
+    if (position === 0) {
+      // TODO: showSettings();
     }
-
-    return (
-      <ListView
-        dataSource={this.state.dataSource}
-        renderRow={this.renderDate}
-        style={styles.listView}
-      />
-    );
   }
 
-  renderLoadingView() {
-    return (
-      <View style={styles.container}>
-        <Text>Loading dates...</Text>
-      </View>
-    );
+  userPressedMenuItem() {
+    var actionDefinedOnButton = this.props.onPress;
+
+    if (actionDefinedOnButton) {
+      this.props.onPress();
+    }
   }
 
-  renderDate(date) {
-    return (
-      <View style={styles.container}>
-        <Image
-          style={styles.backdrop}
-          // source={{uri: movie.posters.thumbnail}}
-          source={require('./images/park.jpg')}>
-          <LinearGradient colors={['transparent', 'rgba(0, 0, 0, 0.8)']}
-                          style={styles.backdropView}>
-            <Text style={styles.title}>{date.title}</Text>
-            <Text style={styles.subtitle}>{date.subtitle}</Text>
-          </LinearGradient>
-        </Image>
+  //image={require("path/to/image.png")
+  render() {
+    var title = this.state.data ? this.state.data : 'Home';
+    var navigationView = (
+      <View style={{flex: 1, backgroundColor: '#fff'}}>
+        <MenuItem title={'My Dates'} />
       </View>
+    );
+    return (
+    <DrawerLayoutAndroid
+      drawerWidth={300}
+      drawerPosition={DrawerLayoutAndroid.positions.Left}
+      renderNavigationView={() => navigationView}>
+        <View style={styles.container}>
+          <ToolbarAndroid
+            // logo={require('./hamburger_icon.png')}
+            title={title}
+            titleColor="white"
+            style={styles.toolbar}
+            // actions={[{title: 'Settings', icon: require('./icon_settings.png'), show: 'always'}]}
+            onActionSelected={this.onActionSelected}/>
+          <DateList
+            dataSource={this.state.dataSource}
+            dataLoaded={this.state.loaded} />
+        </View>
+      </DrawerLayoutAndroid>
     );
   }
 }
@@ -102,33 +110,11 @@ class DateJar extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#C2185B'
+    backgroundColor: '#880d4f' // primary
   },
-  listView: {
-    paddingTop: 20,
-    backgroundColor: '#C2185B'
-  },
-  backdrop: {
-    alignSelf: 'stretch',
-    width: null,
-    height: 200
-  },
-  backdropView: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    left: 0,
-    padding: 16
-  },
-  title: {
-    color: '#FFFFFF',
-    fontSize: 22,
-    fontFamily: 'RobotoCondensed-Regular'
-  },
-  subtitle: {
-    color: '#BDBDBD',
-    fontSize: 16,
-    fontFamily: 'RobotoCondensed-Regular'
+  toolbar: {
+    backgroundColor: '#690a3d', // primary-dark
+    height: 56
   }
 });
 
